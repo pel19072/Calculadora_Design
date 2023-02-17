@@ -1,3 +1,7 @@
+# Daniela Morales Ponce - Carné 19213
+# Ricardo Pellecer Orellana - Carné 19072
+# Calculadora
+
 from modulos import calculadora
 calc = calculadora()
 
@@ -7,25 +11,24 @@ while True:
     if not operation.isnumeric():
         print("El valor que ingresó no está soportado, vuelva a intentarlo")
         continue
+    if int(operation) == 6:
+        break
     if int(operation) == 5:
         print(calc)
         continue
-    if int(operation) == 6:
-        break
-    # Inicio de las operaciones
-    # Se realizó de tal forma que se puedan operar múltiples números a la vez
+    
     nums = []
     while True:
         try:
-            a = float(input("Ingrese el primer número: "))
-            b = float(input("Ingrese el segundo número: "))
-            nums.append(a)
+            a = float(input("Ingrese el número a: "))
+            b = float(input("Ingrese el número b: "))
             nums.append(b)
+            nums.append(a)
             while True:
-                multiple_op = input("Desea ingresar más números? [si/no(default)]")
+                multiple_op = input("Desea ingresar más números? El default es no [si/no]")
                 if multiple_op != "si":
                     break
-                c = float(input("Ingrese el otro número: "))
+                c = float(input("Ingrese otro número: "))
                 nums.append(c)
             break
         except:
@@ -45,5 +48,5 @@ while True:
             print(calc.dividir(nums))
             continue
         case _:
-            print("No se conoce esta opción: ")
+            print("Esta opción no existe. Inténtelo de nuevo: ")
             continue
