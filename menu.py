@@ -1,6 +1,7 @@
 from modulos import calculadora
 calc = calculadora()
 
+# Inicio del menú
 while True:
     operation = input("Seleccione una operación a realizar:\n1. Suma\n2. Resta\n3. Multiplicación\n4. División\n5. Historial\n6. Salir\n")
     if not operation.isnumeric():
@@ -11,30 +12,37 @@ while True:
         continue
     if int(operation) == 6:
         break
-
-
+    # Inicio de las operaciones
+    # Se realizó de tal forma que se puedan operar múltiples números a la vez
+    nums = []
     while True:
-        a = input("Ingrese el primer número: ")
-        b = input("Ingrese el segundo número: ")
         try:
-            a = float(a)
-            b = float(b)
+            a = float(input("Ingrese el primer número: "))
+            b = float(input("Ingrese el segundo número: "))
+            nums.append(a)
+            nums.append(b)
+            while True:
+                multiple_op = input("Desea ingresar más números? [si/no(default)]")
+                if multiple_op != "si":
+                    break
+                c = float(input("Ingrese el otro número: "))
+                nums.append(c)
             break
         except:
             print("Alguno de los número que ingresó no es numérico, inténtelo otra vez\n")
     
     match int(operation):
         case 1:
-            print(calc.sumar([a, b]))
+            print(calc.sumar(nums))
             continue
         case 2:
-            print(calc.restar([a, b]))
+            print(calc.restar(nums))
             continue
         case 3:
-            print(calc.multiplicar([a, b]))
+            print(calc.multiplicar(nums))
             continue
         case 4:
-            print(calc.dividir([a, b]))
+            print(calc.dividir(nums))
             continue
         case _:
             print("No se conoce esta opción: ")
