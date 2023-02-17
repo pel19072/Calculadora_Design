@@ -12,8 +12,15 @@ while True:
         continue
     if int(operation) == 6:
         break
-    # Inicio de las operaciones
-    # Se realizó de tal forma que se puedan operar múltiples números a la vez
+    """ 
+    Inicio de las operaciones
+    Se realizó de tal forma que se puedan operar múltiples números a la vez
+    Casos:
+    * Suma: Se suman todos los números que se ingresen
+    * Resta: Se restan del primer número ingresado todos los demás agregados
+    * Multiplicación: Se multiplican todos los números que se ingresan
+    * División: Se dividen al primero dentro de todos los demás agregados de forma consecutiva
+    """
     nums = []
     while True:
         try:
