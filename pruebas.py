@@ -1,6 +1,7 @@
 from modulos import calculadora
 
 calc = calculadora()
+print("Archivo de pruebas")
 print(calc.multiplicar([3,2,1,4]))
 print(calc.multiplicar([5,32,4.2]))
 print(calc.dividir([3,3,2]))
